@@ -12,9 +12,11 @@ $(document).ready(function(){
     $('div#pwd_form > form').submit(function(){
         var url = $('input#s').val();
         var pass = $('input#p').val();
+	var algo = $('select#a').val();
         $.post('./encode.php', {
         s:url,
-        p:pass
+        p:pass,
+	a:algo
         },function(data) {
             $('.result').html(data);
         });
@@ -43,6 +45,12 @@ $(document).ready(function(){
 "http://" and trailing backslashes will be automatically removed.
             </small>
         </p>
+	<p class="fe">
+		<label for="a">Algorithm:</label>
+		<select name="a" id="a" required>
+			<option value="orig">Original (MD5)</option>
+			<option value="bcrypt1">BCrypt V1</option>
+		</select>
         <p class="fe">
             <label for="p">Pass key (case sensitive):</label>
             <input name="p" id="p" placeholder="Your master password, phrase, or string." required type=password>

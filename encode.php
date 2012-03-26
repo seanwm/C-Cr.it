@@ -28,13 +28,13 @@ switch ($algo){
 		if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH){
 			$bpass = $pass;
 			if (strlen($bpass) < 23) {
-				for ($i = (23/strlen($pass); $i>0; $i++){
-					$bpass = $bpass+pass;
+				for ($i = (23/strlen($pass)); $i>0; $i--){
+					$bpass = $bpass+$pass;
 				}
 			}
-			$return = crypt($site,'$2a$12'.substr(ereg_replace("[^A-Za-z0-9]", "", base64_encode($bpass)),0,22));
-		$return = substr($return,0,12);
-		$return = strtr($return, '+/', '-_');
+			$return = base64_encode(crypt($site,'$2a$12'.substr(ereg_replace("[^A-Za-z0-9]", "", base64_encode($bpass)),0,22)));
+			$return = substr($return,0,12);
+			$return = strtr($return, '+/', '-_');
 		}
 }
 echo $return;
