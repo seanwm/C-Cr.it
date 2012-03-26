@@ -6,30 +6,20 @@
 <link rel="stylesheet" href="./css/screen.css">
 <link rel="stylesheet" media="only screen and (max-device-width: 740px)" href="./css/mobile.css?dd">
 <title>C-Crit! - Anonymous Password Wallet</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="./js/jquery.zclip.js"></script>
+<script src="/js/jquery.min.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){
     $('div#pwd_form > form').submit(function(){
         var url = $('input#s').val();
         var pass = $('input#p').val();
-        $.get('./encode.php', {
+        $.post('./encode.php', {
         s:url,
         p:pass
         },function(data) {
             $('.result').html(data);
-            $('#copy-password').show();
-            // Note that the ZClip stuff goes here because the link to click isn't visible until here:
-            $('a#copy-password').zclip({
-                path:'./js/ZeroClipboard.swf',
-                copy:function(){return $('p.result').text()},
-                clickAfter:false,
-                afterCopy:function(){return false;}
-            });
         });
         return false;
     });
-    
 
 
 });
@@ -67,7 +57,6 @@ $(document).ready(function(){
     <p class=result>
     
     </p>
-    <a href="#" id="copy-password">Copy to clipboard</a>
     </div>
     
 
