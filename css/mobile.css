@@ -1,0 +1,40 @@
+body {
+	width:300px !important;
+	padding:10px !important;
+	margin:0  !important;
+	-webkit-text-size-adjust: none;
+}
+h1{
+margin-top:10px !important;
+margin-bottom:0px;
+color#222;
+}
+h2{
+margin-top:0;
+}
+#pwd_form {
+	width:300px !important;
+	border:none !important;
+	text-align:left !important;
+	margin-left:0;
+}
+#pwd_form form input{
+	margin-left:0 !important;
+	padding:0;
+	width:300px;
+	font-size:16pt;
+}
+label{
+color:#222222;
+clear:both;
+font-size:14pt;
+}
+small{
+display:block;
+line-height:7pt !important;
+font-size:8pt !important;
+}
+#copy-password{
+display:none;
+}
+.f{margin-top:1.0em}
