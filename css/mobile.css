@@ -1,6 +1,6 @@
 body {
-	width:300px !important;
-	padding:10px !important;
+	width:320px !important;
+	padding:00px !important;
 	margin:0  !important;
 	-webkit-text-size-adjust: none;
 }
@@ -13,15 +13,14 @@ h2{
 margin-top:0;
 }
 #pwd_form {
-	width:300px !important;
+	width:270px !important;
 	border:none !important;
 	text-align:left !important;
-	margin-left:0;
+	margin:0 0 40px 0;
 }
 #pwd_form form input{
-	margin-left:0 !important;
 	padding:0;
-	width:300px;
+	width:270px;
 	font-size:16pt;
 }
 label{
@@ -38,3 +37,30 @@ font-size:8pt !important;
 display:none;
 }
 .f{margin-top:1.0em}
+
+input.submit{
+width:230px !important;
+margin-left:20px !important;
+height:43px;
+}
+#usethis
+{
+display:block;
+width:270px;
+text-align:center;
+clear:both;
+font-size:12px;
+display:none;
+}
+#password_res
+{
+margin:25px 0 25px 0;
+display:block;
+width:270px;
+text-align:center;
+clear:both;
+font-size:28px;
+}
+p.small{
+color:#555555 !important;
+}
