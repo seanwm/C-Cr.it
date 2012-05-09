@@ -20,9 +20,15 @@ $return = '';
 switch ($algo){
 
 	case "orig":
-		$return = base64_encode(hash('sha256',($site.sha1($pass,true).sha1($site,true).$pass),true));
+		$pass_hash = sha1($pass,true);
+		$site_hash = sha1($site,true);
+		$concat_str = $site.$pass_hash.$site_hash.$pass;
+
+		$return = base64_encode(hash('sha256',$concat_str,true));
+		//$return = base64_encode(hash('sha256',($site.sha1($pass,true).sha1($site,true).$pass),true));
 		$return = substr($return,0,12);
 		$return = strtr($return, '+/', '-_');
+		$return .= '<div style="display:none">pass_hash:'.$pass_hash."\n site_hash:".$site_hash."\n concat_str:".$concat_str.'</div>';
 		break;
 	case "bcrypt1":
 		if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH){
