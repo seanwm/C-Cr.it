@@ -509,15 +509,15 @@ bCrypt.prototype.hashpw = function(password, salt, callback, progress) {
 	var obj = this;
 	this.crypt_raw(passwordb, saltb, rounds, function(hashed) {
 		var rs = [];
-	        rs.push("$2");
-	        if (minor >= 'a')
-			rs.push(minor);
-		rs.push("$");
-        	if (rounds < 10)
-			rs.push("0");
-        	rs.push(rounds.toString());
-	        rs.push("$");
-	        rs.push(obj.encode_base64(saltb, saltb.length));
+	        //rs.push("$2");
+	        //if (minor >= 'a')
+		//	rs.push(minor);
+		//rs.push("$");
+        	//if (rounds < 10)
+		//	rs.push("0");
+        	//rs.push(rounds.toString());
+	        //rs.push("$");
+	        //rs.push(obj.encode_base64(saltb, saltb.length));
 	        rs.push(obj.encode_base64(hashed, obj.bf_crypt_ciphertext.length * 4 - 1));
 	        callback(rs.join(''));
 	}, progress);

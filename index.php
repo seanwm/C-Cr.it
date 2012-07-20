@@ -8,8 +8,8 @@
 <link rel="stylesheet" media="only screen and (max-device-width: 740px)" href="./css/mobile.css?dd">
 <link href='https://fonts.googleapis.com/css?family=Nunito:700,400' rel='stylesheet' type='text/css'>
 <title>C-Crit! - Anonymous Password Wallet</title>
-<script src="/js/jquery.min.js" type="text/javascript"></script>
 <script src="/js/base64.js" type="text/javascript"></script>
+<script src="/js/MochiKit/MochiKit.js" type="text/javascript"/></script>
 <script src="/js/Clipperz/Base.js" type="text/javascript"></script>
 <script src="/js/Clipperz/ByteArray.js" type="text/javascript"></script>
 <script src="/js/Clipperz/Crypto/BigInt.js" type="text/javascript"></script>
@@ -17,58 +17,104 @@
 <script src="/js/Clipperz/Crypto/AES.js" type="text/javascript"></script>
 <script src="/js/Clipperz/Crypto/PRNG.js" type="text/javascript"></script>
 <script src="/js/bCrypt.js" type="text/javascript"></script>
+<script src="/js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 var id;
 var bcrypt = new bCrypt();
+
 function enable(){
-	if(bcrypt.ready()){
-		$("#submit").removeAttr("disabled");
+	/*if(bcrypt.ready()){
+		//$("#submit").removeAttr("disabled");
 		clearInterval(id);
+		//alert("bcrypt is ready!");
+	}*/
+}
+
+function randomCharacter() {
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	var string_length = 1;
+	var randomstring = '';
+	for (var i=0; i<string_length; i++) {
+		var rnum = Math.floor(Math.random() * chars.length);
+		randomstring += chars.substring(rnum,rnum+1);
+	}
+	return randomstring;
+}
+
+function randomizePlaceholder()
+{
+	current_val = $('#password_res').html();
+	var rch = Math.floor(Math.random() * current_val.length);
+	if (rch>0){
+		new_val = current_val.substring(0,rch-1) + randomCharacter() + current_val.substring(rch);
+		$('#password_res').html(new_val);
 	}
 }
 
 $(document).ready(function(){
-	
-    $('div#pwd_form > form').submit(function(){
-	
+	//id = setInterval(enable,250);
+    $('#submit').click(function(){
+	$('#usethis').html('Generating...');
+	var value = 0;
+	//console.log("Form submitted");
         var url = $('input#s').val();
         var pass = $('input#p').val();
 
 				var formatted_pass = massageSalt(pass);
 				var formatted_url = massageUrl(url);
-				var result = "";
+
+			//console.log("Formmated pass: "+formatted_pass);
+			//console.log("Formmated url: "+formatted_url);
 				try{
 					bcrypt.hashpw(
 						formatted_url, formatted_pass, result, function() {
-                	//var value = $('#progressbar').progressbar( "option", "value" );
+							randomizePlaceholder();
+							//current_val = $('#password_res').html();
+							//new_val = current_val.
+			                		//$('#password_res').var value = $('#progressbar').progressbar( "option", "value" );
 									//$('#progressbar').progressbar({ value: value + 1 });
             }
 					);
+		return false;
         }catch(err){
 					alert(err);
-					return;
+					return false;
         }
+	return false;
     });
 });
 
+var begin = '';
 function result(hash)
 {
-	//resultstr = Base64.encode(hash);
-	$('#password_res').html(hash);
+	//console.log("In result.");
+	//console.log("Hash: "+hash);
+	$('#usethis').html("Use this Password: ");
+	$('#password_res').html(massageResult(hash));
 	selectText('password_res');
+	//return false;
+}
+function massageResult(hash)
+{
+	hash = hash.replace('/','_');
+	hash = hash.replace('+','-');
+	hash = hash.substring(0,$('#password_res').html().length);
+	return hash;
 }
 
 function massageSalt(salt)
 {
-	if (salt.length < 23) {
-		for (i = (23/salt.length); i>0; i--){
-			salt = salt + salt;
+	asalt = salt.replace(" ", "");
+	if (asalt.length < 40) {
+		for (i = (40/asalt.length); i>0; i--){
+			asalt = asalt + asalt;
 		}
 	}
-	salt = Base64.encode(salt);
-	salt = salt.replace('[^A-Za-z0-9]','');
-	salt = '$2a$12' + salt.substring(0,22);
-	return salt;
+	//salt = Base64.encode(salt);
+	bsalt = asalt.replace(" ",'');
+	csalt = bsalt.replace(/[^A-Za-z0-9]/,'');
+	dsalt = '$2a$12$t' + csalt.substring(0,28);
+	return dsalt;
 }
 
 function massageUrl(url)
@@ -132,7 +178,7 @@ It's best to choose one particular site attribute &mdash; name, URL, etc &mdash;
 		</select>
 	</div>
         <div class="fe">
-            <input type="submit" value="Keep it C-Cr.it!" class="submit" id="submit" disabled="disabled">
+            <input type="button" value="Keep it C-Cr.it!" class="submit" id="submit">
         </div>
     </form>
     <p class="result">
