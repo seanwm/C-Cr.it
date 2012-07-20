@@ -9,25 +9,77 @@
 <link href='https://fonts.googleapis.com/css?family=Nunito:700,400' rel='stylesheet' type='text/css'>
 <title>C-Crit! - Anonymous Password Wallet</title>
 <script src="/js/jquery.min.js" type="text/javascript"></script>
-<script>
+<script src="/js/base64.js" type="text/javascript"></script>
+<script src="/js/Clipperz/Base.js" type="text/javascript"></script>
+<script src="/js/Clipperz/ByteArray.js" type="text/javascript"></script>
+<script src="/js/Clipperz/Crypto/BigInt.js" type="text/javascript"></script>
+<script src="/js/Clipperz/Crypto/SHA.js" type="text/javascript"></script>
+<script src="/js/Clipperz/Crypto/AES.js" type="text/javascript"></script>
+<script src="/js/Clipperz/Crypto/PRNG.js" type="text/javascript"></script>
+<script src="/js/bCrypt.js" type="text/javascript"></script>
+<script type="text/javascript">
+var id;
+var bcrypt = new bCrypt();
+function enable(){
+	if(bcrypt.ready()){
+		$("#submit").removeAttr("disabled");
+		clearInterval(id);
+	}
+}
+
 $(document).ready(function(){
+	
     $('div#pwd_form > form').submit(function(){
+	
         var url = $('input#s').val();
         var pass = $('input#p').val();
-	var algo = $('select#a').val();
-        $.post('./encode.php', {
-        s:url,
-        p:pass,
-	a:algo
-        },function(data) {
-            	$('#password_res').html(data);
-		selectText('password_res');
-        });
-        return false;
+
+				var formatted_pass = massageSalt(pass);
+				var formatted_url = massageUrl(url);
+				var result = "";
+				try{
+					bcrypt.hashpw(
+						formatted_url, formatted_pass, result, function() {
+                	//var value = $('#progressbar').progressbar( "option", "value" );
+									//$('#progressbar').progressbar({ value: value + 1 });
+            }
+					);
+        }catch(err){
+					alert(err);
+					return;
+        }
     });
-
-
 });
+
+function result(hash)
+{
+	//resultstr = Base64.encode(hash);
+	$('#password_res').html(hash);
+	selectText('password_res');
+}
+
+function massageSalt(salt)
+{
+	if (salt.length < 23) {
+		for (i = (23/salt.length); i>0; i--){
+			salt = salt + salt;
+		}
+	}
+	salt = Base64.encode(salt);
+	salt = salt.replace('[^A-Za-z0-9]','');
+	salt = '$2a$12' + salt.substring(0,22);
+	return salt;
+}
+
+function massageUrl(url)
+{
+	url = jQuery.trim(url);
+	if (url.substring(url.length-1)=='/') url = url.substring(0,url.length-1);
+	if (url.substring(0,7)=='http://') url = url.substring(7);
+	if (url.substring(0,8)=='https://') url = url.substring(8);	
+	return url;
+}
+
 function selectText(element) {
     var doc = document;
     var text = doc.getElementById(element); 
@@ -44,6 +96,7 @@ function selectText(element) {
         selection.addRange(range);
     }
 }
+
 </script>
 </head>
 <body>
@@ -79,7 +132,7 @@ It's best to choose one particular site attribute &mdash; name, URL, etc &mdash;
 		</select>
 	</div>
         <div class="fe">
-            <input type="submit" value="Keep it C-Cr.it!" class="submit">
+            <input type="submit" value="Keep it C-Cr.it!" class="submit" id="submit" disabled="disabled">
         </div>
     </form>
     <p class="result">
