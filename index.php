@@ -57,7 +57,7 @@ It's best to choose one particular site attribute &mdash; name, URL, etc &mdash;
 	<div class="fe minor">
 		<label for="a">Algorithm:</label>
 		<select name="a" id="a" required>
-            <option value="bsha256">Browser SHA256</option>
+            <option value="bsha256">Browser SHA256 (EXPERIMENTAL)</option>
 			<option value="orig">Original (SHA1)</option>
             <option value="bcrypt1">BCrypt V1--DEPRECATED, UNSAFE, DO NOT USE</option>
 		</select>
