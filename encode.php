@@ -42,5 +42,19 @@ switch ($algo){
 			$return = substr($return,0,12);
 			$return = strtr($return, '+/', '-_');
 		}
+		break;
+	case "bsha256":
+		$compound = $pass.$site.$pass.$site;
+		$hash = hash("sha256", $compound);
+		$i = 1000;
+		while($i>0)
+		{
+			$hash = hash("sha256", $hash);
+			$i--;
+		}
+
+		$baseHash = base64_encode($hash);
+		$return = substr($baseHash, 0, 12);
+		break;
 }
 echo $return;

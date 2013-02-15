@@ -8,43 +8,13 @@
 <link rel="stylesheet" media="only screen and (max-device-width: 740px)" href="./css/mobile.css?dd">
 <link href='https://fonts.googleapis.com/css?family=Nunito:700,400' rel='stylesheet' type='text/css'>
 <title>C-Crit! - Anonymous Password Wallet</title>
-<script src="/js/jquery.min.js" type="text/javascript"></script>
-<script>
-$(document).ready(function(){
-    $('div#pwd_form > form').submit(function(){
-        var url = $('input#s').val();
-        var pass = $('input#p').val();
-	var algo = $('select#a').val();
-        $.post('./encode.php', {
-        s:url,
-        p:pass,
-	a:algo
-        },function(data) {
-            	$('#password_res').html(data);
-		selectText('password_res');
-        });
-        return false;
-    });
-
-
-});
-function selectText(element) {
-    var doc = document;
-    var text = doc.getElementById(element); 
-
-    if (doc.body.createTextRange) { // ms
-        var range = doc.body.createTextRange();
-        range.moveToElementText(text);
-        range.select();
-    } else if (window.getSelection) { // moz, opera, webkit
-        var selection = window.getSelection();
-        var range = doc.createRange();
-        range.selectNodeContents(text);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-}
-</script>
+<!--[if lt IE 9]>
+    <script src="./js/iestrfix.js" type="text/javascript"></script>
+<![endif]-->
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="./js/sha256.js" type="text/javascript"></script>
+<script src="./js/base64.js" type="text/javascript"></script>
+<script src="./js/c-cr.it.js?v=2.14.2013" type="text/javascript"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -87,8 +57,9 @@ It's best to choose one particular site attribute &mdash; name, URL, etc &mdash;
 	<div class="fe minor">
 		<label for="a">Algorithm:</label>
 		<select name="a" id="a" required>
+            <option value="bsha256">Browser SHA256</option>
 			<option value="orig">Original (SHA1)</option>
-			<option value="bcrypt1">BCrypt V1</option>
+            <option value="bcrypt1">BCrypt V1--DEPRECATED, UNSAFE, DO NOT USE</option>
 		</select>
 	</div>
         <div class="fe">

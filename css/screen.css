@@ -3,7 +3,7 @@ body {
 	color:#888888;
 	font-weight:400;
 	background-color:#222;
-	background:url('/bgpattern.png');
+	background:url('../bgpattern.png');
 }
 h1{margin:28px 0 0 0;font-size:24px;text-transform:uppercase;font-weight:700;}
 h2{font-size:12px;margin:0 0 0 0;font-weight:400;}
@@ -15,7 +15,7 @@ text-align:center;
 	width:300px;
 	margin: 0 auto;
 	text-align:left;
-	background:url('/bg_tile_wht.png') #FFF;
+	background:url('../bg_tile_wht.png') #FFF;
 	padding:5px 25px 5px 25px;
 }
 #pwd_form form input{
