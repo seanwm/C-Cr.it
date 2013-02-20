@@ -1,0 +1,138 @@
+<?php
+ini_set('session.use_cookies', 0);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=320">
+<meta charset=utf-8>
+<link rel="icon" type="image/png" href="https://c-cr.it/ccrit-favicon.png">
+<link rel="stylesheet" href="./css/screen.css?v=2.19.2013-A">
+<link rel="stylesheet" media="only screen and (max-device-width: 740px)" href="./css/mobile.css?dd">
+<link href='https://fonts.googleapis.com/css?family=Nunito:700,400' rel='stylesheet' type='text/css'>
+<title>About C-Crit! - Anonymous Password Wallet</title>
+<!--[if lt IE 9]>
+    <script src="./js/iestrfix.js" type="text/javascript"></script>
+<![endif]-->
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="./js/jquery.cookie.js" type="text/javascript"></script>
+<script src="./js/c-cr.it.js?v=2.19.2013-A" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34363606-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+
+<hgroup>
+<h1><a href="http://c-cr.it">Keep it <span id="sitename">C-Crit!</span></a></h1>
+<h2>On-the-fly Passwords</h2>
+</hgroup>
+
+<div class="f">
+   <div id="about">
+		<dt>What is C-Cr.it?</dt>
+    <dd>
+			C-cr.it algorithmically generates passwords based on the name or domain of a site, and a master key you provide.
+    </dd>
+		<dt>I see...</dt>
+		<dd>
+			This means that you can use a different password for every website you use, while only having to remember two things.
+		</dd>
+		<dt>Which are?</dt>
+		<dd>
+			1. <strong>Your key</strong> - a kind of master password that you use every time you use C-cr.it.<br>
+			2. <strong>Your algorithm</strong> - each algorithm has a name and a color.
+		</dd>
+		<dt>Can I have an example?</dt>
+		<dd>
+			<table border=0>
+				<tr>
+					<th>Site</th>
+					<th class="sym"> &nbsp; </th>
+					<th>Key</th>
+					<th class="sym"> &nbsp; </th>
+					<th>Algorithm</th>
+					<th class="sym"> &nbsp; </th>
+					<th>Password</th>
+				</tr>
+				<tr>
+					<td>geocities.com</td>
+					<td class="sym">+</td>
+					<td>p4ssw0rd</td>
+					<td class="sym">*</td>
+					<td><span style="color:#FF2219;font-weight:bold;">D</span></td>
+					<td class="sym">=</td>
+					<td>YmFkOTFhMjhk</td>
+				</tr>
+				<tr>
+					<td colspan=7><small>Now with a different site:</small></td>
+				</tr>
+				<tr>
+					<td>friendster.com</td>
+					<td class="sym">+</td>
+					<td>p4ssw0rd</td>
+					<td class="sym">*</td>
+					<td><span style="color:#FF2219;font-weight:bold;">D</span></td>
+					<td class="sym">=</td>
+					<td>ZmQ1MGM0Y2E4</td>
+				</tr>
+				<tr>
+					<td colspan=7><small>Now with a different algorithm:</small></td>
+				</tr>
+				<tr>
+					<td>friendster.com</td>
+					<td class="sym">+</td>
+					<td>p4ssw0rd</td>
+					<td class="sym">*</td>
+					<td><span style="color:#41e800;font-weight:bold;">B</span></td>
+					<td class="sym">=</td>
+					<td>MTlkZTYzZTc4</td>
+				</tr>
+				<tr>
+					<td colspan=7><small>Now with a different key:</small></td>
+				</tr>
+				<tr>
+					<td>friendster.com</td>
+					<td class="sym">+</td>
+					<td>Kronos</td>
+					<td class="sym">*</td>
+					<td><span style="color:#41e800;font-weight:bold;">B</span></td>
+					<td class="sym">=</td>
+					<td>NjczYjc4ODVh</td>
+				</tr>
+			</table>
+		</dd>
+		<dt>But why?</dt>
+		<dd>It's far safer than reusing passwords.  If you use "p4ssw0rd" for both pets.com and geocities.com, any hackers who obtain your pets.com password can break into your geocities account.  With C-cr.it, you'd just have to switch to a different algorithm for your pets.com password.
+		</dd>
+		
+		<dt>Why not use a password manager instead?</dt>
+		<dd>You should! Most browsers have great built-in password managers nowadays.  C-cr.it has a few advantages over add-on password managers, though:<br><br>
+			- You can access C-cr.it from your phone, your friend's laptop, your work computer, or any other gadget with a web browser, so you can retrieve your password when you need it.<br><br>
+			- You don't have to trust C-cr.it as much. The password generation is performed entirely in your browser, without sending your site and key to our server. We also publish the algorithms C-cr.it uses so that if one day C-cr.it disappeared, someone else could make a compatible password generator.<br><br>
+			- Free!<br>
+		</dd>
+		<dt>Great, can I start use this everywhere?</dt>
+		<dd>
+			Sure, odds are your online life will be safer for it!  That said, C-cr.it (like password managers) can't protect you from a person or agency specifically targeting you; if such crafty and determined people found your C-cr.it password for one site, they could potentially use that to discover your key and what algorithm you use (which would allow them to regenerate your other passwords).
+			<br><br>
+			It's hardly a danger worth mentioning right now, but if C-cr.it becomes very popular, hackers who break into online user databases may be able to recognize C-cr.it-generated passwords; from there, they could potentially attempt to discover users keys and algorithms as described above.
+			<br><br>
+			So do <em>not</em> use C-cr.it for the password to your cache of stolen government documents, or your hard drive full of financial data, or your space station's guidance computer.  You may decide that you'd rather not use C-cr.it for critical accounts like banks, email, etc. We understand.</dd>
+ </div>
+
+<footer>
+	<a href="./what.html">What is this?</a>
+</footer>
+</body>
+</html>

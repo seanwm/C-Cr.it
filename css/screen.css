@@ -5,18 +5,65 @@ body {
 	background-color:#222;
 	background:url('../bgpattern.png');
 }
-h1{margin:28px 0 0 0;font-size:24px;text-transform:uppercase;font-weight:700;}
+h1{margin:40px 0 0 0;font-size:24px;text-transform:uppercase;font-weight:700;}
+h1 a{
+	color:#888888;
+	text-decoration:none;
+}
+h1 a:hover{
+	text-decoration:underline;
+}
 h2{font-size:12px;margin:0 0 0 0;font-weight:400;}
 
 h1,h2,h3{
 text-align:center;
 }
-#pwd_form {
+#pwd_form, #about {
 	width:300px;
 	margin: 0 auto;
 	text-align:left;
 	background:url('../bg_tile_wht.png') #FFF;
 	padding:5px 25px 5px 25px;
+}
+#about{
+	padding:2em;
+}
+#about dd{
+	line-height:1.5em;
+	font-family:helvetica,verdana,sans-serif;
+	color:#666666;
+	font-size:12px;
+	margin-bottom:30px;
+	margin-left:30px;
+}
+#about dd table th, #about dd table td{
+	text-align:center;
+	font-size:10px;
+}
+#about dd table
+{
+	margin-top:5px;
+	padding:5px;
+	background:#EEEEEE;
+	margin-left:-40px;
+}
+#about dd table th
+{
+	background-color:#CCCCCC;
+}
+#about dd table td
+{
+	font-family:'Courier New',monospace;
+	background-color:inherit;
+}
+#about dd table td small
+{
+	color:#888888;
+	font-family:helvetica,verdana,sans-serif;
+}
+#about dd table th.sym, #about dd table td.sym
+{
+	background-color:inherit;
 }
 #pwd_form form input{
 	clear:both;
@@ -29,7 +76,7 @@ text-align:center;
 ol{margin:1em 0 0 0;padding:0}
 input{background-color:#EEE}
 li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
-.f{margin-top:1em}
+.f{margin-top:2em}
 .fe{margin:15px 0 0 0;}
 label{
 text-align:left;
@@ -79,15 +126,128 @@ background: -ms-linear-gradient(top, #00b6e8 0%,#009fce 100%); /* IE10+ */
 background: linear-gradient(top, #00b6e8 0%,#009fce 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b6e8', endColorstr='#009fce',GradientType=0 ); /* IE6-9 */
 }
+input.submit.orig{
+	background:#777777;
+}
+input.submit.alga{
+	border-top-color:#5ad2f4;
+	border-bottom-color:#006688;
+	background: #00b6e8; /* Old browsers */
+	background: -moz-linear-gradient(top, #00b6e8 0%, #009fce 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b6e8), color-stop(100%,#009fce)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00b6e8 0%,#009fce 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #00b6e8 0%,#009fce 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #00b6e8 0%,#009fce 100%); /* IE10+ */
+	background: linear-gradient(top, #00b6e8 0%,#009fce 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b6e8', endColorstr='#009fce',GradientType=0 ); /* IE6-9 */
+}
+
+input.submit.algb{
+	border-top-color:#86E761;
+	border-bottom-color:#30B605;
+	background: #41e800; /* Old browsers */
+	background: -moz-linear-gradient(top,  #41e800 0%, #39cc00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#41e800), color-stop(100%,#39cc00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #41e800 0%,#39cc00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #41e800 0%,#39cc00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #41e800 0%,#39cc00 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #41e800 0%,#39cc00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41e800', endColorstr='#39cc00',GradientType=0 ); /* IE6-9 */
+}
+input.submit.algc{
+	border-top-color:#EED74F;
+	border-bottom-color:#C0A312;
+	background: #f1d017; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f1d017 0%, #d6b615 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1d017), color-stop(100%,#d6b615)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f1d017 0%,#d6b615 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f1d017 0%,#d6b615 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f1d017 0%,#d6b615 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f1d017 0%,#d6b615 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1d017', endColorstr='#d6b615',GradientType=0 ); /* IE6-9 */
+}
+input.submit.algd{
+	border-top-color:#FC8787;
+	border-bottom-color:#BE0011;
+	background: #ff2219; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ff2219 0%, #e51d16 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff2219), color-stop(100%,#e51d16)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ff2219 0%,#e51d16 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ff2219 0%,#e51d16 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ff2219 0%,#e51d16 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ff2219 0%,#e51d16 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2219', endColorstr='#e51d16',GradientType=0 ); /* IE6-9 */
+}
+
 input.submit:hover{
 border-left:1px solid #006688;
 border-right:1px solid #006688;
 border-top-color:#006688;
 }
+
+input.submit.alga:hover{
+	border-color:#006688;
+}
+input.submit.algb:hover{
+	border-color:#30B605;
+}
+input.submit.algc:hover{
+	border-color:#C0A312;
+}
+input.submit.algd:hover{
+	border-color:#BE0011;
+}
+
 input.submit:active{
 border-bottom:none;
 }
 #password_res{
 	color:#00adde;
 	font-family:'Courier New',monospace;
+}
+
+#password_res.alga{
+	color:#00b6e8;
+}
+#password_res.algb{
+	color:#41e800;
+}
+#password_res.algc{
+	color:#F1D017;
+}
+#password_res.algd{
+	color:#FF2219;
+}
+#password_res.orig{
+	color:#777777;
+}
+
+#sitename.alga{
+	color:#00b6e8;
+}
+#sitename.algb{
+	color:#41e800;
+}
+#sitename.algc{
+	color:#F1D017;
+}
+#sitename.algd{
+	color:#FF2219;
+}
+#sitename.orig{
+	color:#777777;
+}
+
+footer{
+	width:300px;
+	margin:30px auto;
+	text-align:center;
+}
+footer a{
+	font-size:14px;
+	text-decoration:none;
+	color:#888888;
+}
+footer a:hover{
+	text-decoration:underline;
 }
