@@ -27,7 +27,25 @@ text-align:center;
 }
 #about{
 	padding:2em;
+	width:500px;
 }
+#about ul{
+	list-style-type:square;
+	padding-left:0;
+	margin-left:0;
+}
+#about ul li{
+	overflow:visible;
+}
+#about dd a, #about dd a:visited, #about dd a:hover
+{
+	color:#111111;
+	text-decoration:none;
+}
+#about dd a:hover{
+	text-decoration:underline;
+}
+
 #about dd{
 	line-height:1.5em;
 	font-family:helvetica,verdana,sans-serif;

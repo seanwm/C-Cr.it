@@ -41,6 +41,50 @@ ini_set('session.use_cookies', 0);
 <div class="f">
    <div id="about">
 		<dt>What is C-Cr.it?</dt>
+		<dd><p>C-CR.IT (say "secret") algorithmically generates passwords based on the name or domain of a site, and a master key you provide.</p></dd>
+
+		<dt>How it works:</dt>
+
+		<dd><p>To generate a 12-character, high-quality password for one of your online accounts, type in the name or the domain of a site you need to create a password for, type in a Key (your C-CR.IT master password), select an algorithm, and click Keep It C-CR.IT!  The next time you need that password, just come back to C-CR.IT and enter the same information: C-CR.IT will return the same generated password.  Changing either the Site, Key, or Algorithm will create a different password, so for each additional account you can just change the Site field, and use the same Algorithm and Key.  Unless you use the "original" algorithm, the password generation happens in your web browser, and none of your information is ever sent to the C-CR.IT server.</p></dd>
+
+		<dt>What it's good for:</dt>
+
+		<dd><p>You have to create an account to do just about anything online these days, and no one wants to spend time coming up with a unique, high-quality password for each Site.  Inevitably, many of us end up defaulting to a couple of passwords that we reuse across our many accounts.  But this means that when hackers steal user account information from your <a href="http://www.wired.com/gamelife/2011/11/steam-hacked/">video game forum</a>, your <a href="http://arstechnica.com/security/2012/09/virgin-mobile-password-crack-risk/">cellphone company</a>, or <a href="http://money.cnn.com/2012/06/06/technology/linkedin-password-hack/index.htm?iid=SF_T_Lead">your social network</a>, they've not only stolen one of your accounts, they've stolen the ability to access all of the accounts where you used the same password.  You're left wondering if you can possibly remember the dozens of places you used the same password, hoping that none of your financial or email accounts are on that list.</p>
+
+		<p>The only solution to this problem is to use a different password for each of your accounts&mdash;and then find a way to keep track of them.</p>
+
+		<p>Some people use password managers to solve this problem.  Of course, if you use an online password manager, you run the risk of that service suffering from a security issue.  There are other password managers that run on your own computer, but these often require you to buy additional copies of their software for each device (phone, work PC, etc) you want to use it on.  And, of course, the only way these programs can sync your passwords is through an online service, with all of the vulnerabilities of an online password manager.  What happens when you need to log into an infrequently-used account from a computer without their software installed?  And with both online and local password managers, what happens if such a company goes out of business?</p>
+
+		<p>C-CR.IT is different.  You go to https://c-cr.it, type in the name or URL of the Site you're creating an account for, and a Key (your C-CR.IT master password), and we use that info to algorithmically generate a strong, 12-character password for you.  Best of all, this generation is handled entirely in your web browser: the Site, Key, and generated password are never sent to back to our servers.  C-CR.IT uses industry-standard SHA256 cryptographic hashing to generate your password, so (using the details provided below) if C-CR.IT suddenly disappeared or turned evil one morning, someone would be able to set up a compatible service quickly and easily.  There's no software to install or fees to pay.</p>
+</dd>
+
+		<dt>Good C-CR.IT practices:</dt>
+		<dd><ul>
+		<li>You can type whatever you want in the Site field, but "http://" and trailing slashes will automatically be removed.  Help yourself by staying consistent: either include "www" with every Site, or don't include it at all; always use the Site or app's name, or always use its domain name.  This way you won't be left guessing whether you need to type "friendster", "friendster.com", or "www.friendster.com" in the Site field.</li>
+
+		<li>Different algorithms create different passwords from the same Site and Key, so consistently use the same algorithm.  C-CR.IT sets a cookie in your browser to remember your algorithm choice (an algorithm is randomly assigned on your first visit).  Each algorithm is associated with a color, to make it easier for you to notice when your setting has changed.</li>
+
+		<li>You still need to remember at least one good password to use as your C-CR.IT Key.  If you use "password" as your Key for "gmail.com" with Algorithm A, your C-CR.IT password will be YjEyZTYxOTA2.</li>
+
+		<li>For a little added security, we recommend that you mix up you C-CR.IT practices from time to time.  For example, if you generally don't include "www" in the Site field, consider including it whenever you generate a bank account password.  Or, consider using a different Key whenever you create a password for an email account.  Simple rules like these can help you improve your password security without adding too much complexity.</li>
+</ul></dd>
+
+		<dt>What do I do if I find out one of my accounts has been compromised?</dt>
+
+		<dd><p>Let's say you used C-CR.IT to create a password for your Beenz.com account, and now you hear that yours is one of thousands of passwords leaked due to a security issue.  First, rest easy!  Your Beenz password is unique, so your Audiogalaxy and Webvan accounts are safe.  You'll need a new Beenz password, though, and now you have a few options: change the Site name (say, from "Beenz" to "Beenz2"), change your algorithm (say, from A to B), or change your Key.  We think the first two options are preferable, because they're easier to remember.</p></dd>
+
+		<dt>Caveat Utilitor</dt>
+
+		<dd><p>C-CR.IT makes it easy to be safer online, but it's not the right security tool for everyone.  If you believe your account information may be personally targeted&mdash;say, because you're an activist, a spy, or a scandal-prone celebrity—you may not want to use C-CR.IT (or, for that matter, any password manager), especially for your most important accounts.  If someone found out your usual C-CR.IT Key, what you generally put in the Site field, and what algorithm you use, they could use that information to access any account of yours that has a C-CR.IT-generated password.  The odds of this happening are very low, but if someone were willing to dedicate a lot of time and/or resources to you in particular, they may be able to discover this information (in one way or another).</p></dd>
+		
+		<dt>Where's that technical info?</dt>
+		<dd></dd>
+		
+		<dt>Who made this?</dt>
+		<dd><p>C-CR.IT was made by Sean W. Mahan, with continual usability assistance from his wife Laura, and the design vision of JL.</p></dd>
+
+		<!--
+		<dt>What is C-Cr.it?</dt>
     <dd>
 			C-cr.it algorithmically generates passwords based on the name or domain of a site, and a master key you provide.
     </dd>
@@ -129,10 +173,11 @@ ini_set('session.use_cookies', 0);
 			It's hardly a danger worth mentioning right now, but if C-cr.it becomes very popular, hackers who break into online user databases may be able to recognize C-cr.it-generated passwords; from there, they could potentially attempt to discover users keys and algorithms as described above.
 			<br><br>
 			So do <em>not</em> use C-cr.it for the password to your cache of stolen government documents, or your hard drive full of financial data, or your space station's guidance computer.  You may decide that you'd rather not use C-cr.it for critical accounts like banks, email, etc. We understand.</dd>
+			//-->
  </div>
 
 <footer>
-	<a href="./what.html">What is this?</a>
+	<a href="./">Back!</a>
 </footer>
 </body>
 </html>
