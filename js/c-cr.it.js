@@ -49,6 +49,7 @@ $(document).ready(function(){
 		var algo = $('select#a').val();
 		
 		url = url.replace("http://", "");
+		url = url.replace("https://", "");
 		url = url.trim();
 		
 		$('input#s').val(url);
