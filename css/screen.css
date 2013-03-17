@@ -23,13 +23,17 @@ text-align:center;
 	width:350px;
 	margin: 0 auto;
 	text-align:left;
+	border-radius:3px;
 	/*background:url('../bg_tile_wht.png') #FFF;
 	padding:5px 25px 5px 25px;*/
-	padding:5px 0 25px 0;
+	padding:0;
+	box-shadow: -3px -3px 10px #222;
 }
 #about{
 	padding:2em;
 	width:500px;
+	background:url('../bg_tile_wht.png') #FFF;
+	/*border-radius:5px;*/
 }
 #about ul{
 	list-style-type:square;
@@ -92,11 +96,17 @@ text-align:center;
 	display:block;
 	font-size:16px;
 	font-weight:700;
-	color:#222;
+	color:#444;
 }
+#pwd_form form select{
+	background-color:#DDDDDD;
+	font-size:12px;
+}
+
 ol{margin:1em 0 0 0;padding:0}
 input{background-color:#EEE}
-li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
+ul li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
+ol li{overflow:visible}
 .f{margin-top:2em}
 .fe{margin:15px 0 0 0;}
 label{
@@ -280,7 +290,16 @@ div.front, div.back{
 
 div.front{
 	width:298px;
-	background:url('../bg_tile_wht.png') #FFF;
+	/*background:url('../bg_tile_wht.png') #FFF;*/
+	background: #c0c0c0; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c0c0c0 0%, #dddddd 10%, #dddddd 90%, #c0c0c0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c0c0c0), color-stop(10%,#dddddd), color-stop(90%,#dddddd), color-stop(100%,#c0c0c0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c0c0c0 0%,#dddddd 10%,#dddddd 90%,#c0c0c0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c0c0c0 0%,#dddddd 10%,#dddddd 90%,#c0c0c0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c0c0c0 0%,#dddddd 10%,#dddddd 90%,#c0c0c0 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c0c0c0 0%,#dddddd 10%,#dddddd 90%,#c0c0c0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0c0c0', endColorstr='#c0c0c0',GradientType=0 ); /* IE6-9 */
+	
 	border-top: 1px solid #777;
 	border-left: 1px solid #777;
 	border-bottom: 1px solid #AAA;
@@ -291,16 +310,16 @@ div.front.top{
 	border-left: 1px solid #999;
 	border-bottom: 1px solid #DDD;
 	border-right: 1px solid #DDD;	
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
 }
 div.front.bottom{
 	border-top: 1px solid #DDD;
 	border-left: 1px solid #DDD;
 	border-bottom: 1px solid #999;
 	border-right: 1px solid #999;	
-	border-bottom-left-radius:5px;
-	border-bottom-right-radius:5px;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
 }
 
 div.back{
@@ -324,7 +343,7 @@ div.back p.small{
 	color:#DDD;	
 }
 div.back label{
-	color:#EEE;
+	color:#AAA;
 }
 p.result{
 	padding-bottom:0;
