@@ -48,6 +48,7 @@ $(document).ready(function(){
 		var pass = $('input#p').val();
 		var algo = $('select#a').val();
 		
+		url = url.toLowerCase();
 		url = url.replace("http://", "");
 		url = url.replace("https://", "");
 		url = url.trim();
