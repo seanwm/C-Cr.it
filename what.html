@@ -10,7 +10,7 @@ ini_set('session.use_cookies', 0);
 <link rel="stylesheet" href="./css/screen.css?v=2.19.2013-A">
 <link rel="stylesheet" media="only screen and (max-device-width: 740px)" href="./css/mobile.css?dd">
 <link href='https://fonts.googleapis.com/css?family=Nunito:700,400' rel='stylesheet' type='text/css'>
-<title>About C-Crit! - Anonymous Password Wallet</title>
+<title>About C-CR.IT! - Anonymous Password Wallet</title>
 <!--[if lt IE 9]>
     <script src="./js/iestrfix.js" type="text/javascript"></script>
 <![endif]-->
@@ -34,13 +34,13 @@ ini_set('session.use_cookies', 0);
 <body>
 
 <hgroup>
-<h1><a href="http://c-cr.it">Keep it <span id="sitename">C-Crit!</span></a></h1>
+<h1><a href="http://c-cr.it">Keep it <span id="sitename">C-CRIT!</span></a></h1>
 <h2>On-the-fly Passwords</h2>
 </hgroup>
 
 <div class="f">
    <div id="about">
-		<dt>What is C-Cr.it?</dt>
+		<dt>What is C-CRIT?</dt>
 		<dd><p>C-CR.IT (say "secret") algorithmically generates passwords based on the name or domain of a site, and a master key you provide.</p></dd>
 
 		<dt>How it works:</dt>
@@ -78,7 +78,24 @@ ini_set('session.use_cookies', 0);
 		<dd><p>C-CR.IT makes it easy to be safer online, but it's not the right security tool for everyone.  If you believe your account information may be personally targeted&mdash;say, because you're an activist, a spy, or a scandal-prone celebrity—you may not want to use C-CR.IT (or, for that matter, any password manager), especially for your most important accounts.  If someone found out your usual C-CR.IT Key, what you generally put in the Site field, and what algorithm you use, they could use that information to access any account of yours that has a C-CR.IT-generated password.  The odds of this happening are very low, but if someone were willing to dedicate a lot of time and/or resources to you in particular, they may be able to discover this information (in one way or another).</p></dd>
 		
 		<dt>Where's that technical info?</dt>
-		<dd></dd>
+		<dd>
+			<div style="width:60%;float:left;">
+<ol><li>Prepare a string by concatenating key+site+key+site, to end up with, say, "1234pownce.com1234pownce.com".</li>
+<li>Create the SHA256 hash of that string.</li>
+<li>Hash the result a varying number of times (see table).</li>
+<li>Base64 encode the final result.</li>
+<li>Trim the Base64-encoded result to 12 characters</li>
+</ol>
+</div><div>
+			<table style="float:right;">
+			<tr><th>Algorithm</th><th>SHA256 Rounds</th></tr>
+			<tr><td>A</td><td>1100</td></tr>
+			<tr><td>B</td><td>1200</td></tr>
+			<tr><td>C</td><td>1300</td></tr>
+			<tr><td>D</td><td>1400</td></tr>
+			</table>
+</div><br style="clear:both;">
+		</dd>
 		
 		<dt>Who made this?</dt>
 		<dd><p>C-CR.IT was made by Sean W. Mahan, with continual usability assistance from his wife Laura, and the design vision of JL.</p></dd>
