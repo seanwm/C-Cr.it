@@ -84,7 +84,8 @@ ini_set('session.use_cookies', 0);
 <li>Create the SHA256 hash of that string.</li>
 <li>Hash the result a varying number of times (see table).</li>
 <li>Base64 encode the final result.</li>
-<li>Trim the Base64-encoded result to 12 characters</li>
+<li>Shorten the Base64-encoded result to the first 12 characters</li>
+<li>If the resulting 12-character string doesn't include any numerals, skip one character and then take the next 12 characters.  Continue incrementing the offset (what character you start on) until you have a 12 character string that includes at least one numeral. If you get to the last 12 characters and still don't have a numeral, give up and just use those last 12 characters. I think this is very very unlikely.</li>
 </ol>
 </div><div>
 			<table style="float:right;">

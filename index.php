@@ -18,7 +18,7 @@ ini_set('session.use_cookies', 0);
 <script src="./js/jquery.cookie.js" type="text/javascript"></script>
 <script src="./js/sha256.js" type="text/javascript"></script>
 <script src="./js/base64.js" type="text/javascript"></script>
-<script src="./js/c-cr.it.js?v=2.19.2013-A" type="text/javascript"></script>
+<script src="./js/c-cr.it.js?v=3.18.2013-A" type="text/javascript"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -64,11 +64,11 @@ Choose a site attribute &mdash; name, URL &mdash; to use with C-Cr.it. Be consis
 		<label for="a">Algorithm:</label>
 		<select name="a" id="a" required>
 			<option value="alga">Algorithm A (Browser SHA256)</option>
-      <option value="algb">Algorithm B (Browser SHA256)</option>
-      <option value="algc">Algorithm C (Browser SHA256)</option>
-      <option value="algd">Algorithm D (Browser SHA256)</option>
-			<option value="orig">Original (SHA1)</option>
-            <option value="bcrypt1">BCrypt V1--UNSAFE, DO NOT USE</option>
+      <option value="algb">Algorithm B (In-Browser SHA256)</option>
+      <option value="algc">Algorithm C (In-Browser SHA256)</option>
+      <option value="algd">Algorithm D (In-Browser SHA256)</option>
+			<option value="orig">Original SHA1: Transmitted to C-CR.IT</option>
+            <!--<option value="bcrypt1">BCrypt V1--UNSAFE, DO NOT USE</option>//-->
 		</select>
 	</div>
 	</div>

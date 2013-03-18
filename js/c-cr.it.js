@@ -105,10 +105,19 @@ function inBrowserHashWithAlgo(algo)
 	}
 	
 	baseHash = Base64.encode(hash);
-	shorthash = baseHash.substr(0,12);
+
+	var offset = 0;
+	while (!hasNumber(baseHash.substr(offset,12)) && (offset+12<baseHash.length))
+	{
+		offset++;
+	}
+
+	shorthash = baseHash.substr(offset,12);
 	$('#password_res').html(shorthash);
 	selectText('password_res');
 }
+
+function hasNumber(t){return /\d/.test(t);}
 
 function clearStyles()
 {
